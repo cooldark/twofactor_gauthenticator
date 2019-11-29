@@ -1,0 +1,41 @@
+# Configuration for Release Drafter: https://github.com/toolmantim/release-drafter
+name-template: '$NEXT_PATCH_VERSION'
+tag-template: '$NEXT_PATCH_VERSION'
+
+# Emoji reference: https://gitmoji.carloscuesta.me/
+categories:
+  - title: 🚨 Removed
+    label: removed
+  - title: 🚀 New features and improvements
+    labels:
+      - feature
+      - enhancement
+  - title: 🐛 Bug Fixes
+    labels:
+      - bug
+      - fix
+      - bugfix
+  - title: 🧰 Maintenance
+    labels: 
+      - chore
+      - internal
+  - title: 📝 Documentation updates
+    label: documentation      
+  # Default label used by Dependabot
+  - title: 📦 Dependency updates
+    label: dependencies
+
+exclude-labels:
+  - reverted
+  - no-changelog
+  - skip-changelog
+  - invalid
+
+template: |
+  <!-- Optional: add a release summary here -->
+  $CHANGES
+  $CONTRIBUTORS
+
+replacers:
+  - search: '@dependabot-preview'
+    replace: '@dependabot'
